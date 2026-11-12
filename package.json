@@ -1,0 +1,16 @@
+{
+  "name": "rag-retrieval-eval-lab",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "Offline ranked retrieval metric evaluation on synthetic RAG datasets",
+  "engines": {"node": ">=20"},
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "demo": "node bin/evaluate.mjs",
+    "check:site": "node scripts/check-site.mjs",
+    "stage": "node scripts/stage-site.mjs",
+    "browser:smoke": "node scripts/browser-check.mjs"
+  }
+}

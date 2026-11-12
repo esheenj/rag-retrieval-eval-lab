@@ -1,0 +1,45 @@
+name: Tests
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  evaluator:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [20, 22, 24]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Pure retrieval metrics and negative tests
+        run: npm test
+      - name: Static source safety and accessibility checks
+        run: npm run check:site
+      - name: Synthetic CLI report
+        run: |
+          node bin/evaluate.mjs > /tmp/rag-eval.json
+          node --input-type=module -e "import fs from 'node:fs';const x=JSON.parse(fs.readFileSync('/tmp/rag-eval.json'));if(x.reports.length!==3||x.reports.some(r=>r.retrievers.length!==2||r.modelQualityVerified||r.relevanceJudgmentsVerified))process.exit(1);"
+  browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Stage strict static bundle
+        run: npm run stage
+      - name: Verify real headless Chrome behaviour
+        run: |
+          google-chrome --version
+          npm run browser:smoke
