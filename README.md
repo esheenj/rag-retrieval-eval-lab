@@ -1,5 +1,7 @@
 # RAG Retrieval Evaluation Lab
 
+**Support this open-source project (optional):** [Esheen Labs crypto support](https://esheenj.github.io/compound-intelligence-starter/support.html) accepts maintainer-supplied BTC on Bitcoin and USDT on Solana, Ethereum/ERC-20 or Tron/TRC-20. The destination addresses are **custodial Pionex exchange deposits** and may change; check the exact network, current address and minimum before sending. Contributions do not buy priority, access or execution authority. All demos and source remain free.
+
 **Understand why a retrieval strategy helps—or misses—the right information.**
 
 An original, offline Esheen Labs developer playground for comparing fictional ranked search results against supplied relevance judgments. Explore transparent precision@k, recall@k, hit@k, mean reciprocal rank@k and nDCG@k, with the same pure evaluation code available as a Node CLI.
