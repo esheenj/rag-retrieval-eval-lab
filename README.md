@@ -1,5 +1,9 @@
 # RAG Retrieval Evaluation Lab
 
+**Product definition:** A local, deterministic retrieval-ranking evaluation playground for developers building search and retrieval-augmented generation features. Compare *supplied fictional rankings* with explicit relevance labels, inspect metrics, and reproduce results through the Node CLI. It neither runs an LLM nor measures real-world answer truth.
+
+**Useful next step:** Use its transparent example as a starting point for a separately qualified customer-specific retrieval evaluation, with permissioned datasets, human relevance judgments and actual retrieval runs outside this repository. This free MIT project does not include that service or collect customer data.
+
 **Support this open-source project (optional):** [Esheen Labs crypto support](https://esheenj.github.io/compound-intelligence-starter/support.html) accepts maintainer-supplied BTC on Bitcoin and USDT on Solana, Ethereum/ERC-20 or Tron/TRC-20. The destination addresses are **custodial Pionex exchange deposits** and may change; check the exact network, current address and minimum before sending. Contributions do not buy priority, access or execution authority. All demos and source remain free.
 
 **Understand why a retrieval strategy helps—or misses—the right information.**
